@@ -1,6 +1,6 @@
 import logging
 import os
-from flask import Flask,render_template,url_for,current_app,g,request,redirect,make_response,session,flash
+from flask import Flask,render_template,url_for,current_app,g,request,redirect,make_response,session,flash,request
 from email_validator import EmailNotValidError, validate_email
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_mail import Mail, Message
@@ -20,8 +20,10 @@ app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
 
 # Mailクラスのコンフィグを追加する
 
+username=request.cookies.get("username")
+response=make_response(render_template("contact.html"))
 
-
+response.delete_cookie("username")
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # 电子邮件服务器的主机名或IP地址
 app.config['MAIL_PORT'] = 587  # 电子邮件服务器的端口
