@@ -23,6 +23,7 @@ dt = Blueprint("detector", __name__, template_folder="templates")
 # dtアプリケーションを使ってエンドポイントを作成する
 @dt.route("/")
 def index():
+    
     user_images = (
         db.session.query(User, UserImage)
         .join(UserImage)
@@ -281,3 +282,9 @@ def search():
         delete_form=delete_form,
         detector_form=detector_form,
     )
+
+@dt.errorhandler(404)
+def page_not_found(e):
+    return render_template("detector/404.html"),404
+
+
