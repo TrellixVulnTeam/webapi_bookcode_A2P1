@@ -10,7 +10,6 @@ def test_index(client):
     assert "ログイン" in rv.data.decode()
     assert "画像新規登録" in rv.data.decode()
 
-
 def signup(client,username,email,password):
     data=dict(username=username,email=email,password=password)
     return client.past("/auth/signup",data=data,follow_redirects=True)
