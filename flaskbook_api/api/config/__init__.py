@@ -1,6 +1,6 @@
-from flaskbook_api.api.config import base,local
+from . import base, local
 
-config={
-    "base":base.Config,
-    "local":local.LocalConfig,
+config = {
+    "base": base.Config,
+    "local": local.LocalConfig,
 }

@@ -1,8 +1,11 @@
 from pathlib import Path
-import  PIL
+
+import PIL
+
 basedir = Path(__file__).parent.parent
 
-def load_image(request,reshaped_size=(256,256)):
+
+def load_image(request, reshaped_size=(256, 256)):
     """画像の読み込み"""
     filename = request.json["filename"]
     dir_image = str(basedir / "data" / "original" /filename)
