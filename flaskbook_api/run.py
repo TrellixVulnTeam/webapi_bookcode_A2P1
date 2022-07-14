@@ -11,3 +11,6 @@ app = Flask(__name__)
 app.config.from_object(config[config_name])
 
 app.register_blueprint(api)
+
+if __name__ == "__main__":
+    app(host='0.0.0.0')
